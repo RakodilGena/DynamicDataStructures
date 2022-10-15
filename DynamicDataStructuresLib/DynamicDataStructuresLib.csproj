@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="LinkedLists\DoublyLinkedList\" />
-    <Folder Include="LinkedLists\SingleLinkedList\" />
   </ItemGroup>
 
 </Project>
