@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using DynamicDataStructuresLib.LinkedLists.SingleLinkedList;
 
 namespace DynamicDataStructuresLib.LinkedLists
@@ -32,6 +27,9 @@ namespace DynamicDataStructuresLib.LinkedLists
             }
             set
             {
+                if (index < 0 || index >= Length)
+                    throw new IndexOutOfRangeException();
+
                 GetElementAtIndex(index).Value = value;
             }
         }

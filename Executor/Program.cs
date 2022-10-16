@@ -1,4 +1,5 @@
 ﻿using DynamicDataStructuresLib.LinkedLists;
+using Executor.LinkedListPerformance;
 
 namespace Executor
 {
@@ -8,14 +9,28 @@ namespace Executor
         {
             Console.WriteLine("Welcome to Dynamic Data Structures!\r\n\r\n");
 
-            Console.WriteLine("Test of Single Linked List\r\n");
-            var singleList = new SingleLinkedList<int>();
-            LinkedListExecution(singleList);
+            //Console.WriteLine("Test of Single Linked List\r\n");
+            //var singleList = new SingleLinkedList<int>();
+            //LinkedListExecution(singleList);
+
+            //Console.WriteLine("\r\n\r\n\r\nTest of Doubly Linked List\r\n");
+            //var dList = new DoublyLinkedList<int>();
+            //LinkedListExecution(dList);
+            LinkedListPerformanceTester.Test();
+
+            Console.WriteLine("\r\n\r\nPress any key...");
+            Console.ReadLine();
         }
 
 
+
+        /// <summary>
+        /// Test list to make sure any method is fine.
+        /// </summary>
+        /// <param name="linkedList"></param>
         private static void LinkedListExecution(ILinkedList<int> linkedList)
         {
+
             linkedList.Print();
 
             var newRange = new[] { 1, 2, 3, 4 };
@@ -29,10 +44,7 @@ namespace Executor
             linkedList[2] = -80;
             Console.WriteLine($"Elements[2] is {linkedList.GetElement(2)}\r\n");
 
-            linkedList = new SingleLinkedList<int>(5, 6, 7, 8);
-            linkedList.Print();
-
-            linkedList.AddFirst(1);
+            linkedList.AddFirst(-4);
             linkedList.Print();
 
             linkedList.AddLast(20);

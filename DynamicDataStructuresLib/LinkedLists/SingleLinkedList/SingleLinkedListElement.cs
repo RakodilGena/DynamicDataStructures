@@ -1,24 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DynamicDataStructuresLib.LinkedLists.SingleLinkedList
+﻿namespace DynamicDataStructuresLib.LinkedLists.SingleLinkedList
 {
     internal class SingleLinkedListElement<T>
     {
         /// <summary>
         /// Value of this element.
         /// </summary>
-        public T Value { get; set; }
+        internal T Value { get; set; }
 
         /// <summary>
-        /// Link to next element.
+        /// Link to the next element.
         /// </summary>
-        public SingleLinkedListElement<T>? Next { get; set; }
+        internal SingleLinkedListElement<T>? Next { get; set; }
 
-        public SingleLinkedListElement(T value)
+        internal SingleLinkedListElement(T value)
         {
             Value = value;
         }
