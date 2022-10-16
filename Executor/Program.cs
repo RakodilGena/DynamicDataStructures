@@ -1,5 +1,6 @@
 ﻿using DynamicDataStructuresLib.LinkedLists;
 using Executor.LinkedListPerformance;
+using Executor.OrderedStructuresTest;
 
 namespace Executor
 {
@@ -18,7 +19,9 @@ namespace Executor
             //LinkedListExecution(dList);
             LinkedListPerformanceTester.Test();
 
-            Console.WriteLine("\r\n\r\nPress any key...");
+            OrderedStructuresTester.Test();
+
+            Console.WriteLine("Press any key...");
             Console.ReadLine();
         }
 
