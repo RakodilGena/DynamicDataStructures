@@ -15,22 +15,20 @@ namespace Executor.LinkedListPerformance
         public static void Test()
         {
             //first run for cashing
-            ExecuteTests();
+            ExecuteTests(false);
 
-            Console.Clear();
-
-            Console.WriteLine("Testing Linked List Performance\r\n\r\n");
-            ExecuteTests();
+            Console.WriteLine($"Testing Linked Lists Performance at {COLLECTION_SIZE} sized collections.\r\n\r\n");
+            ExecuteTests(true);
         }
 
-        private static void ExecuteTests()
+        private static void ExecuteTests(bool outputResults)
         {
             var initialCollection = Enumerable.Repeat(INSERT_VALUE, COLLECTION_SIZE).ToArray();
-
-            Console.WriteLine(Pr("Type") + Pl("Init")
-                + Pl("InsertStart") + Pl("InsertMid") + Pl("InsertEnd")
-                + Pl("ReadStart") + Pl("ReadMid") + Pl("ReadEnd")
-                + Pl("RemoveStart") + Pl("RemoveMid") + Pl("RemoveEnd"));
+            if (outputResults)
+                Console.WriteLine(Pr("Type") + Pl("Init")
+                    + Pl("InsertStart") + Pl("InsertMid") + Pl("InsertEnd")
+                    + Pl("ReadStart") + Pl("ReadMid") + Pl("ReadEnd")
+                    + Pl("RemoveStart") + Pl("RemoveMid") + Pl("RemoveEnd"));
 
             GetArrayPerformance(initialCollection,
                 out double initElapsed,
@@ -44,10 +42,11 @@ namespace Executor.LinkedListPerformance
                 out double middleRemoveElapsed,
                 out double endRemoveElapsed);
 
-            Console.WriteLine(Pr("Array") + Pl(initElapsed)
-                + Pl(startInsertElapsed) + Pl(middleInsertElapsed) + Pl(endInsertElapsed)
-                + Pl(startReadElapsed) + Pl(middleReadElapsed) + Pl(endReadElapsed)
-                + Pl(startRemoveElapsed) + Pl(middleRemoveElapsed) + Pl(endRemoveElapsed));
+            if (outputResults)
+                Console.WriteLine(Pr("Array") + Pl(initElapsed)
+                    + Pl(startInsertElapsed) + Pl(middleInsertElapsed) + Pl(endInsertElapsed)
+                    + Pl(startReadElapsed) + Pl(middleReadElapsed) + Pl(endReadElapsed)
+                    + Pl(startRemoveElapsed) + Pl(middleRemoveElapsed) + Pl(endRemoveElapsed));
 
 
             ILinkedList<decimal> list = new SingleLinkedList<decimal>();
@@ -64,10 +63,11 @@ namespace Executor.LinkedListPerformance
                 out middleRemoveElapsed,
                 out endRemoveElapsed);
 
-            Console.WriteLine(Pr("SingleLL") + Pl(initElapsed)
-                + Pl(startInsertElapsed) + Pl(middleInsertElapsed) + Pl(endInsertElapsed)
-                + Pl(startReadElapsed) + Pl(middleReadElapsed) + Pl(endReadElapsed)
-                + Pl(startRemoveElapsed) + Pl(middleRemoveElapsed) + Pl(endRemoveElapsed));
+            if (outputResults)
+                Console.WriteLine(Pr("SingleLL") + Pl(initElapsed)
+                    + Pl(startInsertElapsed) + Pl(middleInsertElapsed) + Pl(endInsertElapsed)
+                    + Pl(startReadElapsed) + Pl(middleReadElapsed) + Pl(endReadElapsed)
+                    + Pl(startRemoveElapsed) + Pl(middleRemoveElapsed) + Pl(endRemoveElapsed));
 
 
             list = new DoublyLinkedList<decimal>();
@@ -84,10 +84,14 @@ namespace Executor.LinkedListPerformance
                 out middleRemoveElapsed,
                 out endRemoveElapsed);
 
+            if (!outputResults)
+                return;
+
             Console.WriteLine(Pr("DoublyLL") + Pl(initElapsed)
                 + Pl(startInsertElapsed) + Pl(middleInsertElapsed) + Pl(endInsertElapsed)
                 + Pl(startReadElapsed) + Pl(middleReadElapsed) + Pl(endReadElapsed)
                 + Pl(startRemoveElapsed) + Pl(middleRemoveElapsed) + Pl(endRemoveElapsed));
+            Console.WriteLine("\r\n\r\n");
         }
 
         static string Pr(string name)
